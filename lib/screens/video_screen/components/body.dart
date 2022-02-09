@@ -56,7 +56,7 @@ class _BodyState extends State<Body> {
           ),
           //Icon Row
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           IconRow(
             video: widget.video,
@@ -85,18 +85,19 @@ class _BodyState extends State<Body> {
           //id Logo
           Expanded(
             child: Row(
-              children: [
+              children: <Widget>[
                 CircleAvatar(
                   radius: 25,
                   backgroundImage:
                       NetworkImage(widget.video.author.profileImageUrl),
                 ),
                 SizedBox(
-                  width: 4,
+                  width: 20,
                 ),
                 //Profile Name and Subscribe Button
                 Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         widget.video.author.username,
@@ -104,25 +105,10 @@ class _BodyState extends State<Body> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (pressed == true) {
-                              pressed = false;
-                            } else {
-                              pressed = true;
-                            }
-                          });
-                        },
+                      Opacity(
+                        opacity: 0.5,
                         child: Text(
-                          pressed == false ? "Subscribe" : "Subscribed",
-                          style: TextStyle(
-                            color: pressed == false ? Colors.blue : Colors.grey,
-                          ),
-                        ),
+                            widget.video.author.subscribers + " subscribers"),
                       ),
                     ],
                   ),
@@ -131,31 +117,28 @@ class _BodyState extends State<Body> {
                   width: 10,
                 ),
                 //Subsribers and Join Button
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Opacity(
-                        opacity: 0.5,
-                        child: Text(
-                            widget.video.author.subscribers + " subscribers"),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "JOIN",
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                if (pressed == true) {
+                  pressed = false;
+                } else {
+                  pressed = true;
+                }
+              });
+            },
+            child: Text(
+              pressed == false ? "SUBSCRIBE" : "SUBSCRIBED",
+              style: TextStyle(
+                  color: pressed == false ? Colors.red : Colors.grey,
+                  fontSize: 17),
+            ),
+          ),
           Container(
-              margin: EdgeInsets.only(right: 10),
+              margin: EdgeInsets.only(right: 10, left: 10),
               child: Icon(Icons.notifications)),
         ],
       ),
