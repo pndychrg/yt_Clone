@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yt_clone/screens/home_screen.dart';
+import 'package:yt_clone/screens/home_screen/home_screen.dart';
 import 'package:yt_clone/theme/theme.dart';
 
 void main() {

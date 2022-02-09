@@ -7,7 +7,6 @@ import 'package:yt_clone/theme/constants.dart';
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     appBarTheme: appBarThemeLight,
-    dividerColor: Colors.transparent,
     scaffoldBackgroundColor: Colors.white,
     textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
         .apply(bodyColor: kLightColor),
