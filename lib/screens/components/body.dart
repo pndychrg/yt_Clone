@@ -8,7 +8,9 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(""),
+      child: ListView.builder(
+        itemBuilder: (context, index) => Container(),
+      ),
     );
   }
 }
